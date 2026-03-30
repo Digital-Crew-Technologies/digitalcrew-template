@@ -8,5 +8,68 @@
   },
   "locale": {
     "label": "Language"
+  },
+  "nav": {
+    "brandName": "Digital Crew",
+    "groupMain": "MAIN",
+    "groupSystem": "SYSTEM",
+    "dashboard": "Dashboard",
+    "settings": "Settings",
+    "appearance": "Appearance",
+    "helpSupport": "Help & Support",
+    "searchPlaceholder": "Search…"
+  },
+  "settings": {
+    "title": "Settings",
+    "nav": {
+      "appearance": "Appearance",
+      "selectPlaceholder": "Section"
+    },
+    "appearance": {
+      "title": "Appearance",
+      "description": "Customize the appearance of the app. Automatically switch between day and night themes.",
+      "theme": {
+        "section": "Theme",
+        "system": "System",
+        "light": "Light",
+        "dark": "Dark",
+        "ariaGroup": "Select theme preference",
+        "srDescription": "Choose between system preference, light mode, or dark mode",
+        "optionPreview": "{label} option preview",
+        "optionSelect": "Select {label}"
+      },
+      "splashCursor": {
+        "section": "Splash Cursor",
+        "enabled": "Enabled",
+        "disabled": "Disabled",
+        "ariaGroup": "Select splash cursor preference",
+        "srDescription": "Choose to enable or disable the splash cursor animation effect",
+        "optionPreview": "{label} option preview",
+        "optionSelect": "Select {label}"
+      }
+    }
+  },
+  "commandMenu": {
+    "placeholder": "Type a command or search…",
+    "empty": "No results found.",
+    "themeGroup": "Theme"
+  },
+  "support": {
+    "title": "Help & Support",
+    "intro": "Digital Crew is your AI-powered platform for automating sales workflows, managing prospect lists, and running multi-channel campaigns. Whether you need help with onboarding, campaign setup, or have questions about our features, we're here to support you every step of the way.",
+    "channels": {
+      "bookCall": {
+        "title": "Book a Call",
+        "description": "Schedule a meeting with our founder to discuss your needs and explore how Digital Crew can help your business.",
+        "helper": "Schedule a personalized consultation",
+        "cta": "Schedule Meeting"
+      },
+      "email": {
+        "title": "Send an Email",
+        "description": "Reach out via email for support, questions, or feedback. We'll get back to you shortly.",
+        "helper": "We reply to every message within a business day",
+        "cta": "mario@digitalcrew.tech"
+      }
+    }
   }
 }

@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { useRouter } from "@/lib/i18n/navigation";
 import { ArrowRight, ChevronRight, Laptop, Moon, Sun } from "lucide-react";
 import { useSearch } from "@/context/search-provider";
 import { useTheme } from "@/context/theme-provider";
@@ -18,6 +19,9 @@ import { sidebarData } from "@/components/layout/data/sidebar-data";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 export function CommandMenu() {
+  const t = useTranslations("nav");
+  const tCommand = useTranslations("commandMenu");
+  const tSettings = useTranslations("settings");
   const router = useRouter();
   const { setTheme } = useTheme();
   const { open, setOpen } = useSearch();
@@ -32,18 +36,18 @@ export function CommandMenu() {
 
   return (
     <CommandDialog modal open={open} onOpenChange={setOpen}>
-      <CommandInput placeholder="Type a command or search..." />
+      <CommandInput placeholder={tCommand("placeholder")} />
       <CommandList>
         <ScrollArea className="h-72 pe-1">
-          <CommandEmpty>No results found.</CommandEmpty>
+          <CommandEmpty>{tCommand("empty")}</CommandEmpty>
           {sidebarData.navGroups.map((group) => (
-            <CommandGroup key={group.title} heading={group.title}>
+            <CommandGroup key={group.titleKey} heading={t(group.titleKey)}>
               {group.items.map((navItem, i) => {
                 if (navItem.url)
                   return (
                     <CommandItem
                       key={`${navItem.url}-${i}`}
-                      value={navItem.title}
+                      value={t(navItem.titleKey)}
                       onSelect={() => {
                         runCommand(() => router.push(navItem.url!));
                       }}
@@ -51,14 +55,14 @@ export function CommandMenu() {
                       <div className="flex size-4 items-center justify-center">
                         <ArrowRight className="size-2 text-muted-foreground/80" />
                       </div>
-                      {navItem.title}
+                      {t(navItem.titleKey)}
                     </CommandItem>
                   );
 
                 return navItem.items?.map((subItem, j) => (
                   <CommandItem
-                    key={`${navItem.title}-${subItem.url}-${j}`}
-                    value={`${navItem.title}-${subItem.url}`}
+                    key={`${navItem.titleKey}-${subItem.url}-${j}`}
+                    value={`${t(navItem.titleKey)}-${subItem.url}`}
                     onSelect={() => {
                       runCommand(() => router.push(subItem.url));
                     }}
@@ -66,24 +70,24 @@ export function CommandMenu() {
                     <div className="flex size-4 items-center justify-center">
                       <ArrowRight className="size-2 text-muted-foreground/80" />
                     </div>
-                    {navItem.title} <ChevronRight /> {subItem.title}
+                    {t(navItem.titleKey)} <ChevronRight /> {t(subItem.titleKey)}
                   </CommandItem>
                 ));
               })}
             </CommandGroup>
           ))}
           <CommandSeparator />
-          <CommandGroup heading="Theme">
+          <CommandGroup heading={tCommand("themeGroup")}>
             <CommandItem onSelect={() => runCommand(() => setTheme("light"))}>
-              <Sun /> <span>Light</span>
+              <Sun /> <span>{tSettings("appearance.theme.light")}</span>
             </CommandItem>
             <CommandItem onSelect={() => runCommand(() => setTheme("dark"))}>
               <Moon className="scale-90" />
-              <span>Dark</span>
+              <span>{tSettings("appearance.theme.dark")}</span>
             </CommandItem>
             <CommandItem onSelect={() => runCommand(() => setTheme("system"))}>
               <Laptop />
-              <span>System</span>
+              <span>{tSettings("appearance.theme.system")}</span>
             </CommandItem>
           </CommandGroup>
         </ScrollArea>

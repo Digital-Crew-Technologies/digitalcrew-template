@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/layout/app-sidebar";
@@ -15,6 +16,7 @@ type AuthenticatedLayoutProps = {
 };
 
 export function AuthenticatedLayout({ children }: AuthenticatedLayoutProps) {
+  const t = useTranslations("nav");
   const { splashCursorEnabled } = useSplashCursor();
   return (
     <SearchProvider>
@@ -30,7 +32,7 @@ export function AuthenticatedLayout({ children }: AuthenticatedLayoutProps) {
           )}
         >
           <Header fixed>
-            <Search placeholder="Search..." />
+            <Search placeholder={t("searchPlaceholder")} />
             <div className="flex-1" />
             <ThemeSwitcher />
           </Header>

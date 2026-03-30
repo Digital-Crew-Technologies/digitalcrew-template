@@ -1,12 +1,15 @@
 "use client";
 
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { useSidebar } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
 
 export default function AppTitle() {
+  const t = useTranslations("nav");
   const { state } = useSidebar();
   const isCollapsed = state === "collapsed";
+  const brand = t("brandName");
 
   return (
     <div
@@ -20,14 +23,14 @@ export default function AppTitle() {
         <>
           <Image
             src="/images/logo/logo-icon-black.png"
-            alt="Digital Crew"
+            alt={brand}
             width={20}
             height={20}
             className="dark:hidden"
           />
           <Image
             src="/images/logo/logo-icon-white.png"
-            alt="Digital Crew"
+            alt={brand}
             width={20}
             height={20}
             className="hidden dark:block"
@@ -37,7 +40,7 @@ export default function AppTitle() {
         <>
           <Image
             src="/images/logo/logo-black-complete.svg"
-            alt="Digital Crew"
+            alt={brand}
             width={140}
             height={20}
             className="dark:hidden"
@@ -45,7 +48,7 @@ export default function AppTitle() {
           />
           <Image
             src="/images/logo/logo-white-complete.svg"
-            alt="Digital Crew"
+            alt={brand}
             width={140}
             height={20}
             className="hidden dark:block"

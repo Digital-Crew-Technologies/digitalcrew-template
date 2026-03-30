@@ -8,5 +8,68 @@
   },
   "locale": {
     "label": "Langue"
+  },
+  "nav": {
+    "brandName": "Digital Crew",
+    "groupMain": "PRINCIPAL",
+    "groupSystem": "SYSTÈME",
+    "dashboard": "Tableau de bord",
+    "settings": "Paramètres",
+    "appearance": "Apparence",
+    "helpSupport": "Aide et support",
+    "searchPlaceholder": "Rechercher…"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "nav": {
+      "appearance": "Apparence",
+      "selectPlaceholder": "Section"
+    },
+    "appearance": {
+      "title": "Apparence",
+      "description": "Personnalisez l’apparence de l’application. Basculez automatiquement entre les thèmes clair et sombre.",
+      "theme": {
+        "section": "Thème",
+        "system": "Système",
+        "light": "Clair",
+        "dark": "Sombre",
+        "ariaGroup": "Choisir la préférence de thème",
+        "srDescription": "Choisissez la préférence système, le mode clair ou le mode sombre",
+        "optionPreview": "Aperçu de l’option {label}",
+        "optionSelect": "Sélectionner {label}"
+      },
+      "splashCursor": {
+        "section": "Curseur splash",
+        "enabled": "Activé",
+        "disabled": "Désactivé",
+        "ariaGroup": "Choisir la préférence du curseur splash",
+        "srDescription": "Activez ou désactivez l’animation du curseur splash",
+        "optionPreview": "Aperçu de l’option {label}",
+        "optionSelect": "Sélectionner {label}"
+      }
+    }
+  },
+  "commandMenu": {
+    "placeholder": "Saisissez une commande ou recherchez…",
+    "empty": "Aucun résultat",
+    "themeGroup": "Thème"
+  },
+  "support": {
+    "title": "Aide et support",
+    "intro": "Digital Crew est votre plateforme IA pour automatiser les ventes, gérer les prospects et piloter des campagnes multicanal. Pour l’onboarding, la configuration de campagnes ou toute question sur les fonctionnalités, nous sommes là pour vous accompagner.",
+    "channels": {
+      "bookCall": {
+        "title": "Prendre rendez-vous",
+        "description": "Planifiez un échange avec notre fondateur pour discuter de vos besoins et découvrir comment Digital Crew peut aider votre entreprise.",
+        "helper": "Consultation personnalisée",
+        "cta": "Planifier l’entretien"
+      },
+      "email": {
+        "title": "Envoyer un e-mail",
+        "description": "Écrivez-nous pour le support, vos questions ou vos retours. Nous vous répondrons rapidement.",
+        "helper": "Réponse sous un jour ouvré",
+        "cta": "mario@digitalcrew.tech"
+      }
+    }
   }
 }

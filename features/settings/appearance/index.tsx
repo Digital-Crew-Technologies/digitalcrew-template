@@ -1,14 +1,18 @@
-import { ContentSection } from '../components/content-section'
-import { AppearanceForm } from './appearance-form'
+"use client";
+
+import { useTranslations } from "next-intl";
+import { ContentSection } from "../components/content-section";
+import { AppearanceForm } from "./appearance-form";
 
 export function SettingsAppearance() {
+  const t = useTranslations("settings");
+
   return (
     <ContentSection
-      title='Appearance'
-      desc='Customize the appearance of the app. Automatically switch between day
-          and night themes.'
+      title={t("appearance.title")}
+      desc={t("appearance.description")}
     >
       <AppearanceForm />
     </ContentSection>
-  )
+  );
 }

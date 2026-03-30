@@ -1,48 +1,39 @@
 import {
   LayoutDashboard,
-  List,
-  UserSearch,
-  Rocket,
-  UsersRound,
   Settings,
   Palette,
   LifeBuoy,
-  Building,
-  Building2,
-  Plug,
-  Inbox,
-  Key,
 } from "lucide-react"
 import { type SidebarData } from "../types"
 
 export const sidebarData: SidebarData = {
   navGroups: [
     {
-      title: "MAIN",
+      titleKey: "groupMain",
       items: [
         {
-          title: "Dashboard",
+          titleKey: "dashboard",
           url: "/dashboard",
           icon: LayoutDashboard,
         },
       ],
     },
     {
-      title: "SYSTEM",
+      titleKey: "groupSystem",
       items: [
         {
-          title: "Settings",
+          titleKey: "settings",
           icon: Settings,
           items: [
             {
-              title: "Appearance",
+              titleKey: "appearance",
               url: "/settings/appearance",
               icon: Palette,
             },
           ],
         },
         {
-          title: "Help & Support",
+          titleKey: "helpSupport",
           url: "/support",
           icon: LifeBuoy,
         },

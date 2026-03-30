@@ -8,5 +8,68 @@
   },
   "locale": {
     "label": "语言"
+  },
+  "nav": {
+    "brandName": "Digital Crew",
+    "groupMain": "主要",
+    "groupSystem": "系统",
+    "dashboard": "仪表盘",
+    "settings": "设置",
+    "appearance": "外观",
+    "helpSupport": "帮助与支持",
+    "searchPlaceholder": "搜索…"
+  },
+  "settings": {
+    "title": "设置",
+    "nav": {
+      "appearance": "外观",
+      "selectPlaceholder": "分区"
+    },
+    "appearance": {
+      "title": "外观",
+      "description": "自定义应用外观，可在浅色与深色主题间自动切换。",
+      "theme": {
+        "section": "主题",
+        "system": "跟随系统",
+        "light": "浅色",
+        "dark": "深色",
+        "ariaGroup": "选择主题偏好",
+        "srDescription": "在跟随系统、浅色模式或深色模式之间选择",
+        "optionPreview": "{label} 选项预览",
+        "optionSelect": "选择 {label}"
+      },
+      "splashCursor": {
+        "section": "光标特效",
+        "enabled": "开启",
+        "disabled": "关闭",
+        "ariaGroup": "选择光标特效偏好",
+        "srDescription": "选择开启或关闭光标动画效果",
+        "optionPreview": "{label} 选项预览",
+        "optionSelect": "选择 {label}"
+      }
+    }
+  },
+  "commandMenu": {
+    "placeholder": "输入命令或搜索…",
+    "empty": "无匹配结果",
+    "themeGroup": "主题"
+  },
+  "support": {
+    "title": "帮助与支持",
+    "intro": "Digital Crew 是面向销售自动化、潜客管理与多渠道营销的 AI 平台。无论你需要上手引导、活动配置，还是对功能有疑问，我们都乐意全程协助。",
+    "channels": {
+      "bookCall": {
+        "title": "预约通话",
+        "description": "与创始人预约会议，沟通需求并了解 Digital Crew 如何助力你的业务。",
+        "helper": "预约一对一咨询",
+        "cta": "预约会议"
+      },
+      "email": {
+        "title": "发送邮件",
+        "description": "通过邮件获取支持、提问或反馈，我们会尽快回复。",
+        "helper": "工作日内回复每一封邮件",
+        "cta": "mario@digitalcrew.tech"
+      }
+    }
   }
 }

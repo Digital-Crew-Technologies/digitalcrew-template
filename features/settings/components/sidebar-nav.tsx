@@ -1,6 +1,9 @@
+"use client";
+
 import { useState, type JSX } from "react";
-import { usePathname, useRouter } from "next/navigation";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { usePathname, useRouter } from "@/lib/i18n/navigation";
+import { Link } from "@/lib/i18n/navigation";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -21,6 +24,7 @@ type SidebarNavProps = React.HTMLAttributes<HTMLElement> & {
 };
 
 export function SidebarNav({ className, items, ...props }: SidebarNavProps) {
+  const t = useTranslations("settings");
   const pathname = usePathname();
   const router = useRouter();
   const [val, setVal] = useState(pathname ?? "/settings");
@@ -38,7 +42,7 @@ export function SidebarNav({ className, items, ...props }: SidebarNavProps) {
           onValueChange={handleSelect}
         >
           <SelectTrigger className="h-12 sm:w-48">
-            <SelectValue placeholder="Theme" />
+            <SelectValue placeholder={t("nav.selectPlaceholder")} />
           </SelectTrigger>
           <SelectContent>
             {items.map((item) => (
