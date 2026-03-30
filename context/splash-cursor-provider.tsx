@@ -23,23 +23,24 @@ interface SplashCursorProviderProps {
 export function SplashCursorProvider({ children }: SplashCursorProviderProps) {
   const [splashCursorEnabled, setSplashCursorEnabled] =
     useState<boolean>(true);
-  const [mounted, setMounted] = useState<boolean>(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem("splashCursorEnabled");
-    if (stored !== null) {
-      setSplashCursorEnabled(stored === "true");
-    }
-    setMounted(true);
+    queueMicrotask(() => {
+      const stored = localStorage.getItem("splashCursorEnabled");
+      if (stored !== null) {
+        setSplashCursorEnabled(stored === "true");
+      }
+      setMounted(true);
+    });
   }, []);
 
   useEffect(() => {
-    if (mounted) {
-      localStorage.setItem(
-        "splashCursorEnabled",
-        splashCursorEnabled.toString(),
-      );
-    }
+    if (!mounted) return;
+    localStorage.setItem(
+      "splashCursorEnabled",
+      splashCursorEnabled.toString(),
+    );
   }, [splashCursorEnabled, mounted]);
 
   return (
@@ -51,7 +52,6 @@ export function SplashCursorProvider({ children }: SplashCursorProviderProps) {
   );
 }
 
-// eslint-disable-next-line react-refresh/only-export-components
 export function useSplashCursor(): SplashCursorContextType {
   const context = useContext(SplashCursorContext);
   if (!context) {

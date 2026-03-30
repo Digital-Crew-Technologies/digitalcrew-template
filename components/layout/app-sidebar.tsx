@@ -17,7 +17,6 @@ type AppSidebarProps = {
 };
 
 export function AppSidebar({
-  showProjectSwitcher = false,
   showUserMenu = true,
   collapsible = "icon",
 }: AppSidebarProps = {}) {
