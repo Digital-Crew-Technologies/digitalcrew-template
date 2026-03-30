@@ -1,0 +1,12 @@
+{
+  "home": {
+    "title": "项目已就绪！",
+    "subtitle": "你现在可以添加组件并开始构建。",
+    "buttonHint": "我们已为你添加了按钮组件。",
+    "button": "按钮",
+    "darkModeHint": "（按 <kbd>d</kbd> 切换深色模式）"
+  },
+  "locale": {
+    "label": "语言"
+  }
+}

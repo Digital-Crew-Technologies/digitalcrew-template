@@ -1,0 +1,12 @@
+{
+  "home": {
+    "title": "Projet prêt !",
+    "subtitle": "Vous pouvez maintenant ajouter des composants et commencer à construire.",
+    "buttonHint": "Nous avons déjà ajouté le composant bouton pour vous.",
+    "button": "Bouton",
+    "darkModeHint": "(Appuyez sur <kbd>d</kbd> pour activer le mode sombre)"
+  },
+  "locale": {
+    "label": "Langue"
+  }
+}
