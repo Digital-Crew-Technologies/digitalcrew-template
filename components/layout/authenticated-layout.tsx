@@ -7,16 +7,19 @@ import { Header } from "@/components/layout/header";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 import { SearchProvider } from "@/context/search-provider";
 import { Search } from "@/components/search";
+import { useSplashCursor } from "@/context/splash-cursor-provider";
+import { SplashCursor } from "../splash-cursor";
   
 type AuthenticatedLayoutProps = {
   children?: React.ReactNode;
 };
 
 export function AuthenticatedLayout({ children }: AuthenticatedLayoutProps) {
-
+  const { splashCursorEnabled } = useSplashCursor();
   return (
     <SearchProvider>
       <SidebarProvider>
+        {splashCursorEnabled && <SplashCursor />}
         <AppSidebar />
         <SidebarInset
           className={cn(

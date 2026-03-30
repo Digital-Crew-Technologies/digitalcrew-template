@@ -3,12 +3,14 @@ import { getTranslations } from "next-intl/server"
 
 import { LocaleSwitcher } from "@/components/locale-switcher"
 import { Button } from "@/components/ui/button"
+import { SplashCursor } from "@/components/splash-cursor"
 
 export default async function Page() {
   const t = await getTranslations("home")
 
   return (
     <div className="flex min-h-svh flex-col gap-6 p-6">
+      <SplashCursor />
       <LocaleSwitcher />
       <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
         <div>

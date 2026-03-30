@@ -27,5 +27,26 @@ export const sidebarData: SidebarData = {
         },
       ],
     },
+    {
+      title: "SYSTEM",
+      items: [
+        {
+          title: "Settings",
+          icon: Settings,
+          items: [
+            {
+              title: "Appearance",
+              url: "/settings/appearance",
+              icon: Palette,
+            },
+          ],
+        },
+        {
+          title: "Help & Support",
+          url: "/support",
+          icon: LifeBuoy,
+        },
+      ],
+    },
   ],
 }

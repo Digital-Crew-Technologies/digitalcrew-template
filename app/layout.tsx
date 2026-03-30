@@ -3,6 +3,8 @@ import { Geist_Mono, Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/context/theme-provider"
 import { cn } from "@/lib/utils";
+import { SplashCursorProvider } from "@/context/splash-cursor-provider";
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'})
 
@@ -23,7 +25,12 @@ export default function RootLayout({
       className={cn("antialiased", fontMono.variable, "font-sans", inter.variable)}
     >
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <SplashCursorProvider>
+            {children}
+            <Toaster />
+          </SplashCursorProvider>
+        </ThemeProvider>
       </body>
     </html>
   )
