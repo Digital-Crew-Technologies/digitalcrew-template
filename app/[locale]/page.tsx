@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { getTranslations } from "next-intl/server"
 
 import { LocaleSwitcher } from "@/components/locale-switcher"
@@ -14,7 +15,9 @@ export default async function Page() {
           <h1 className="font-medium">{t("title")}</h1>
           <p>{t("subtitle")}</p>
           <p>{t("buttonHint")}</p>
-          <Button className="mt-2">{t("button")}</Button>
+          <Link href="/dashboard">
+            <Button className="mt-2">{t("button")}</Button>
+          </Link>
         </div>
         <div className="font-mono text-xs text-muted-foreground">
           {t.rich("darkModeHint", {
