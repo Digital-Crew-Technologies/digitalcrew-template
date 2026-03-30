@@ -1,33 +1,55 @@
 "use client"
 
+import { Check, ChevronDown } from "lucide-react"
 import { useLocale, useTranslations } from "next-intl"
 
-import { Link } from "@/lib/i18n/navigation"
-import { localeNames, routing } from "@/lib/i18n/routing"
+import { Button } from "@/components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { usePathname, useRouter } from "@/lib/i18n/navigation"
+import { localeNames, routing, type AppLocale } from "@/lib/i18n/routing"
 import { cn } from "@/lib/utils"
 
 export function LocaleSwitcher() {
-  const locale = useLocale()
+  const locale = useLocale() as AppLocale
   const t = useTranslations("locale")
+  const pathname = usePathname()
+  const router = useRouter()
 
   return (
     <div className="flex flex-wrap items-center gap-2 text-xs">
       <span className="text-muted-foreground">{t("label")}:</span>
-      <div className="flex flex-wrap gap-1">
-        {routing.locales.map((loc) => (
-          <Link
-            key={loc}
-            href="/"
-            locale={loc}
-            className={cn(
-              "rounded-md px-2 py-1 transition-colors hover:bg-muted",
-              loc === locale && "bg-muted font-medium",
-            )}
+      <DropdownMenu modal={false}>
+        <DropdownMenuTrigger asChild>
+          <Button
+            variant="ghost"
+            className="h-auto gap-1 rounded-md px-2 py-1 text-xs font-medium hover:bg-muted data-[state=open]:bg-muted"
+            aria-label={`${t("label")}: ${localeNames[locale]}`}
           >
-            {localeNames[loc]}
-          </Link>
-        ))}
-      </div>
+            {localeNames[locale]}
+            <ChevronDown className="size-3 opacity-60" aria-hidden />
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="start" className="min-w-40">
+          {routing.locales.map((loc) => (
+            <DropdownMenuItem
+              key={loc}
+              className="cursor-pointer"
+              onClick={() => router.replace(pathname, { locale: loc })}
+            >
+              {localeNames[loc]}
+              <Check
+                size={14}
+                className={cn("ms-auto", loc !== locale && "hidden")}
+              />
+            </DropdownMenuItem>
+          ))}
+        </DropdownMenuContent>
+      </DropdownMenu>
     </div>
   )
 }
