@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/layout/app-sidebar";
 import { Header } from "@/components/layout/header";
+import { LocaleSwitcher } from "@/components/locale-switcher";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 import { SearchProvider } from "@/context/search-provider";
 import { Search } from "@/components/search";
@@ -34,6 +35,7 @@ export function AuthenticatedLayout({ children }: AuthenticatedLayoutProps) {
           <Header fixed>
             <Search placeholder={t("searchPlaceholder")} />
             <div className="flex-1" />
+            <LocaleSwitcher variant="icon" />
             <ThemeSwitcher />
           </Header>
           {children}
