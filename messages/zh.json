@@ -1,10 +1,10 @@
 {
   "home": {
-    "title": "项目已就绪！",
-    "subtitle": "你现在可以添加组件并开始构建。",
-    "buttonHint": "我们已为你添加了按钮组件。",
-    "button": "按钮",
-    "darkModeHint": "（按 <kbd>d</kbd> 切换深色模式）"
+    "title": "Digital Crew",
+    "subtitle": "Next.js 启动模板：Supabase 认证、国际化、shadcn/ui 与仪表盘布局，开箱即用。",
+    "buttonHint": "进入仪表盘查看已登录界面与导航。",
+    "button": "打开仪表盘",
+    "darkModeHint": "提示：按 <kbd>d</kbd> 切换深色模式。"
   },
   "locale": {
     "label": "语言"

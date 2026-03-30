@@ -1,10 +1,10 @@
 {
   "home": {
-    "title": "¡Proyecto listo!",
-    "subtitle": "Ya puedes añadir componentes y empezar a construir.",
-    "buttonHint": "Ya hemos añadido el componente de botón por ti.",
-    "button": "Botón",
-    "darkModeHint": "(Pulsa <kbd>d</kbd> para cambiar el modo oscuro)"
+    "title": "Digital Crew",
+    "subtitle": "Plantilla Next.js con auth Supabase, i18n, shadcn/ui y un shell de dashboard—lista para producción.",
+    "buttonHint": "Abre el panel para ver el layout autenticado.",
+    "button": "Abrir panel",
+    "darkModeHint": "Consejo: pulsa <kbd>d</kbd> para el modo oscuro."
   },
   "locale": {
     "label": "Idioma"
