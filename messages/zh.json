@@ -9,6 +9,9 @@
   "locale": {
     "label": "语言"
   },
+  "themeSwitcher": {
+    "toggle": "切换主题"
+  },
   "nav": {
     "brandName": "Digital Crew",
     "groupMain": "主要",

@@ -1,5 +1,8 @@
+ "use client";
+
 import { useEffect } from "react";
 import { Check, Moon, Sun } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import { useTheme } from "@/context/theme-provider";
 import { Button } from "@/components/ui/button";
@@ -12,6 +15,8 @@ import {
 
 export function ThemeSwitcher() {
   const { theme, setTheme, resolvedTheme } = useTheme();
+  const tSettings = useTranslations("settings");
+  const tThemeSwitcher = useTranslations("themeSwitcher");
 
   /* Update theme-color meta tag
    * when theme is updated */
@@ -28,26 +33,26 @@ export function ThemeSwitcher() {
         <Button variant="ghost" size="icon" className="scale-95 rounded-full">
           <Sun className="size-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
           <Moon className="absolute size-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
-          <span className="sr-only">Toggle theme</span>
+          <span className="sr-only">{tThemeSwitcher("toggle")}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuItem onClick={() => setTheme("light")}>
-          Light{" "}
+          {tSettings("appearance.theme.light")}{" "}
           <Check
             size={14}
             className={cn("ms-auto", theme !== "light" && "hidden")}
           />
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("dark")}>
-          Dark
+          {tSettings("appearance.theme.dark")}
           <Check
             size={14}
             className={cn("ms-auto", theme !== "dark" && "hidden")}
           />
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("system")}>
-          System
+          {tSettings("appearance.theme.system")}
           <Check
             size={14}
             className={cn("ms-auto", theme !== "system" && "hidden")}

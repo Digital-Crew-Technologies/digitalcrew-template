@@ -9,6 +9,9 @@
   "locale": {
     "label": "Idioma"
   },
+  "themeSwitcher": {
+    "toggle": "Cambiar tema"
+  },
   "nav": {
     "brandName": "Digital Crew",
     "groupMain": "PRINCIPAL",
