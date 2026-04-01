@@ -9,6 +9,7 @@ import {
 import { sidebarData } from "./data/sidebar-data";
 import { NavGroup } from "./nav-group";
 import AppTitle from "./app-title";
+import { ProfileDropdown } from "@/components/profile-dropdown";
 
 type AppSidebarProps = {
   showProjectSwitcher?: boolean;
@@ -33,6 +34,7 @@ export function AppSidebar({
       {showUserMenu && (
         <SidebarFooter>
           <SidebarMenu>
+            <ProfileDropdown variant="sidebar" />
           </SidebarMenu>
         </SidebarFooter>
       )}

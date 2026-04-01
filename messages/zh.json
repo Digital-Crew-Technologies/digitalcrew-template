@@ -20,6 +20,8 @@
     "settings": "设置",
     "appearance": "外观",
     "helpSupport": "帮助与支持",
+    "myAccount": "我的账户",
+    "logout": "退出登录",
     "searchPlaceholder": "搜索…"
   },
   "settings": {

@@ -20,6 +20,8 @@
     "settings": "Settings",
     "appearance": "Appearance",
     "helpSupport": "Help & Support",
+    "myAccount": "My account",
+    "logout": "Log out",
     "searchPlaceholder": "Search…"
   },
   "settings": {

@@ -7,6 +7,7 @@ import { AppSidebar } from "@/components/layout/app-sidebar";
 import { Header } from "@/components/layout/header";
 import { LocaleSwitcher } from "@/components/locale-switcher";
 import { ThemeSwitcher } from "@/components/theme-switcher";
+import { ProfileDropdown } from "@/components/profile-dropdown";
 import { SearchProvider } from "@/context/search-provider";
 import { Search } from "@/components/search";
 import { useSplashCursor } from "@/context/splash-cursor-provider";
@@ -37,6 +38,7 @@ export function AuthenticatedLayout({ children }: AuthenticatedLayoutProps) {
             <div className="flex-1" />
             <LocaleSwitcher variant="icon" />
             <ThemeSwitcher />
+            <ProfileDropdown />
           </Header>
           {children}
         </SidebarInset>
