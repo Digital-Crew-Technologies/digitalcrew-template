@@ -4,6 +4,8 @@
     "subtitle": "Plantilla Next.js con auth Supabase, i18n, shadcn/ui y un shell de dashboard—lista para producción.",
     "buttonHint": "Abre el panel para ver el layout autenticado.",
     "button": "Abrir panel",
+    "signIn": "Iniciar sesión",
+    "signUp": "Registrarse",
     "darkModeHint": "Consejo: pulsa <kbd>d</kbd> para el modo oscuro."
   },
   "locale": {
@@ -75,6 +77,41 @@
         "helper": "Respondemos en un día hábil",
         "cta": "mario@digitalcrew.tech"
       }
+    }
+  },
+  "auth": {
+    "common": {
+      "emailLabel": "Correo electrónico",
+      "emailPlaceholder": "tu@ejemplo.com",
+      "passwordLabel": "Contraseña",
+      "passwordPlaceholder": "••••••••",
+      "or": "O",
+      "redirecting": "Redirigiendo…",
+      "continueWithGoogle": "Continuar con Google",
+      "backToHome": "Volver al inicio",
+      "googleConnectHint": "Conecta Google OAuth en tu app: esta plantilla solo incluye el botón."
+    },
+    "signIn": {
+      "title": "Bienvenido de nuevo",
+      "description": "Introduce tus credenciales para iniciar sesión.",
+      "submit": "Iniciar sesión",
+      "submitting": "Iniciando sesión…",
+      "noAccount": "¿No tienes cuenta?",
+      "signUpLink": "Regístrate"
+    },
+    "signUp": {
+      "title": "Crear una cuenta",
+      "description": "Regístrate para empezar.",
+      "submit": "Crear cuenta",
+      "submitting": "Creando cuenta…",
+      "haveAccount": "¿Ya tienes cuenta?",
+      "signInLink": "Iniciar sesión"
+    },
+    "signOut": {
+      "title": "Cerrar sesión",
+      "description": "Cerrarás la sesión en este dispositivo.",
+      "cancel": "Cancelar",
+      "confirm": "Cerrar sesión"
     }
   }
 }

@@ -16,9 +16,19 @@ export function Landing() {
           <h1 className="text-2xl font-bold tracking-tight">{t("title")}</h1>
           <p className="text-muted-foreground">{t("subtitle")}</p>
           <p className="text-muted-foreground">{t("buttonHint")}</p>
-          <Link href="/dashboard">
-            <Button className="mt-1">{t("button")}</Button>
-          </Link>
+          <div className="flex flex-wrap items-center gap-3">
+            <Link href="/dashboard">
+              <Button className="mt-1">{t("button")}</Button>
+            </Link>
+            <div className="mt-1 flex gap-3 text-sm">
+              <Link href="/login" className="text-primary underline-offset-4 hover:underline">
+                {t("signIn")}
+              </Link>
+              <Link href="/sign-up" className="text-muted-foreground underline-offset-4 hover:underline">
+                {t("signUp")}
+              </Link>
+            </div>
+          </div>
         </div>
         <div className="font-mono text-xs text-muted-foreground">
           {t.rich("darkModeHint", {

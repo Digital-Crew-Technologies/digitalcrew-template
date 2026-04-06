@@ -4,6 +4,8 @@
     "subtitle": "A Next.js starter with Supabase auth, i18n, shadcn/ui, and a dashboard shell—ready to ship.",
     "buttonHint": "Open the dashboard to explore the authenticated layout.",
     "button": "Open dashboard",
+    "signIn": "Sign in",
+    "signUp": "Sign up",
     "darkModeHint": "Tip: press <kbd>d</kbd> to toggle dark mode."
   },
   "locale": {
@@ -75,6 +77,41 @@
         "helper": "We reply to every message within a business day",
         "cta": "mario@digitalcrew.tech"
       }
+    }
+  },
+  "auth": {
+    "common": {
+      "emailLabel": "Email",
+      "emailPlaceholder": "you@example.com",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "••••••••",
+      "or": "Or",
+      "redirecting": "Redirecting...",
+      "continueWithGoogle": "Continue with Google",
+      "backToHome": "Back to Home",
+      "googleConnectHint": "Wire up Google OAuth in your app—the template only includes this button UI."
+    },
+    "signIn": {
+      "title": "Welcome Back",
+      "description": "Enter your credentials to log in.",
+      "submit": "Sign In",
+      "submitting": "Signing in...",
+      "noAccount": "Don't have an account?",
+      "signUpLink": "Sign Up"
+    },
+    "signUp": {
+      "title": "Create an Account",
+      "description": "Sign up to get started.",
+      "submit": "Create Account",
+      "submitting": "Creating account...",
+      "haveAccount": "Already have an account?",
+      "signInLink": "Sign In"
+    },
+    "signOut": {
+      "title": "Sign out",
+      "description": "You will be signed out of your account on this device.",
+      "cancel": "Cancel",
+      "confirm": "Sign out"
     }
   }
 }

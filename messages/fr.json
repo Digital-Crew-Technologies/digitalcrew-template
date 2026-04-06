@@ -4,6 +4,8 @@
     "subtitle": "Modèle Next.js avec auth Supabase, i18n, shadcn/ui et coque dashboard—prêt à être déployé.",
     "buttonHint": "Ouvrez le tableau de bord pour explorer la mise en page authentifiée.",
     "button": "Ouvrir le tableau de bord",
+    "signIn": "Connexion",
+    "signUp": "S’inscrire",
     "darkModeHint": "Astuce : appuyez sur <kbd>d</kbd> pour le mode sombre."
   },
   "locale": {
@@ -75,6 +77,41 @@
         "helper": "Réponse sous un jour ouvré",
         "cta": "mario@digitalcrew.tech"
       }
+    }
+  },
+  "auth": {
+    "common": {
+      "emailLabel": "E-mail",
+      "emailPlaceholder": "vous@exemple.com",
+      "passwordLabel": "Mot de passe",
+      "passwordPlaceholder": "••••••••",
+      "or": "Ou",
+      "redirecting": "Redirection…",
+      "continueWithGoogle": "Continuer avec Google",
+      "backToHome": "Retour à l’accueil",
+      "googleConnectHint": "Branchez Google OAuth dans votre app : ce modèle n’inclut que le bouton."
+    },
+    "signIn": {
+      "title": "Bon retour",
+      "description": "Saisissez vos identifiants pour vous connecter.",
+      "submit": "Se connecter",
+      "submitting": "Connexion…",
+      "noAccount": "Pas encore de compte ?",
+      "signUpLink": "S’inscrire"
+    },
+    "signUp": {
+      "title": "Créer un compte",
+      "description": "Inscrivez-vous pour commencer.",
+      "submit": "Créer un compte",
+      "submitting": "Création du compte…",
+      "haveAccount": "Déjà un compte ?",
+      "signInLink": "Se connecter"
+    },
+    "signOut": {
+      "title": "Se déconnecter",
+      "description": "Vous serez déconnecté sur cet appareil.",
+      "cancel": "Annuler",
+      "confirm": "Se déconnecter"
     }
   }
 }
