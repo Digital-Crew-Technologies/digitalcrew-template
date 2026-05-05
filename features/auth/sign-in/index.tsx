@@ -18,7 +18,9 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { authClient } from "@/lib/auth-client"
 import { Link, useRouter } from "@/lib/i18n/navigation"
+import { normalizeReturnTo } from "@/lib/i18n/pathname"
 
 export default function SignIn() {
   const id = useId()
@@ -27,7 +29,7 @@ export default function SignIn() {
   const t = useTranslations("auth.signIn")
   const tCommon = useTranslations("auth.common")
 
-  const returnTo = searchParams.get("returnTo") ?? undefined
+  const returnTo = normalizeReturnTo(searchParams.get("returnTo"))
   const satelliteRedirect = searchParams.get("redirect") ?? undefined
 
   const [email, setEmail] = useState("")
@@ -42,8 +44,16 @@ export default function SignIn() {
     setError(null)
     setLoading(true)
     try {
-      await new Promise((r) => setTimeout(r, 350))
+      const { error } = await authClient.signIn.email({
+        email,
+        password,
+      })
+      if (error) {
+        setError(error.message ?? t("signInFailed"))
+        return
+      }
       router.push(returnTo ?? "/dashboard")
+      router.refresh()
     } finally {
       setLoading(false)
     }

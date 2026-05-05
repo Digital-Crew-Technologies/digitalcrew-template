@@ -18,7 +18,9 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { authClient } from "@/lib/auth-client"
 import { Link, useRouter } from "@/lib/i18n/navigation"
+import { normalizeReturnTo } from "@/lib/i18n/pathname"
 
 export default function SignUp() {
   const id = useId()
@@ -27,7 +29,7 @@ export default function SignUp() {
   const t = useTranslations("auth.signUp")
   const tCommon = useTranslations("auth.common")
 
-  const returnTo = searchParams.get("returnTo") ?? undefined
+  const returnTo = normalizeReturnTo(searchParams.get("returnTo"))
   const satelliteRedirect = searchParams.get("redirect") ?? undefined
 
   const [email, setEmail] = useState("")
@@ -42,7 +44,15 @@ export default function SignUp() {
     setError(null)
     setLoading(true)
     try {
-      await new Promise((r) => setTimeout(r, 350))
+      const { error } = await authClient.signUp.email({
+        email,
+        password,
+        name: email.split("@")[0] || "User",
+      })
+      if (error) {
+        setError(error.message ?? t("signUpFailed"))
+        return
+      }
       const loginParams = new URLSearchParams()
       if (returnTo) loginParams.set("returnTo", returnTo)
       if (satelliteRedirect) loginParams.set("redirect", satelliteRedirect)

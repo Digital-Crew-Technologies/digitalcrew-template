@@ -1,12 +1,10 @@
-"use client";
+import { redirect } from "@/lib/i18n/navigation"
 
-import { Settings } from "@/features/settings";
-import { SettingsAppearance } from "@/features/settings/appearance";
+type Props = {
+  params: Promise<{ locale: string }>
+}
 
-export default function SettingsPage() {
-  return (
-    <Settings>
-      <SettingsAppearance />
-    </Settings>
-  );
+export default async function SettingsPage({ params }: Props) {
+  const { locale } = await params
+  redirect({ href: "/settings/account", locale })
 }

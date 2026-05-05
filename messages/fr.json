@@ -21,6 +21,7 @@
     "dashboard": "Tableau de bord",
     "settings": "Paramètres",
     "appearance": "Apparence",
+    "account": "Compte",
     "helpSupport": "Aide et support",
     "myAccount": "Mon compte",
     "logout": "Se déconnecter",
@@ -29,6 +30,7 @@
   "settings": {
     "title": "Paramètres",
     "nav": {
+      "account": "Compte",
       "appearance": "Apparence",
       "selectPlaceholder": "Section"
     },
@@ -54,6 +56,28 @@
         "optionPreview": "Aperçu de l’option {label}",
         "optionSelect": "Sélectionner {label}"
       }
+    },
+    "account": {
+      "title": "Compte",
+      "description": "Profil et sécurité de connexion.",
+      "loading": "Chargement…",
+      "profileTitle": "Profil",
+      "profileDescription": "Comment vous apparaissez dans l’application.",
+      "emailLabel": "E-mail",
+      "nameLabel": "Nom",
+      "saveProfile": "Enregistrer le profil",
+      "saving": "Enregistrement…",
+      "profileSaved": "Profil mis à jour.",
+      "profileSaveError": "Impossible de mettre à jour le profil.",
+      "passwordTitle": "Mot de passe",
+      "passwordDescription": "Modifier le mot de passe pour la connexion par e-mail.",
+      "currentPasswordLabel": "Mot de passe actuel",
+      "newPasswordLabel": "Nouveau mot de passe",
+      "confirmPasswordLabel": "Confirmer le mot de passe",
+      "updatePassword": "Mettre à jour le mot de passe",
+      "updatingPassword": "Mise à jour…",
+      "passwordSaved": "Mot de passe mis à jour.",
+      "passwordSaveError": "Impossible de mettre à jour le mot de passe."
     }
   },
   "commandMenu": {
@@ -97,7 +121,8 @@
       "submit": "Se connecter",
       "submitting": "Connexion…",
       "noAccount": "Pas encore de compte ?",
-      "signUpLink": "S’inscrire"
+      "signUpLink": "S’inscrire",
+      "signInFailed": "Connexion impossible. Vérifiez votre e-mail et votre mot de passe."
     },
     "signUp": {
       "title": "Créer un compte",
@@ -105,7 +130,8 @@
       "submit": "Créer un compte",
       "submitting": "Création du compte…",
       "haveAccount": "Déjà un compte ?",
-      "signInLink": "Se connecter"
+      "signInLink": "Se connecter",
+      "signUpFailed": "Impossible de créer le compte. Essayez une autre adresse e-mail."
     },
     "signOut": {
       "title": "Se déconnecter",

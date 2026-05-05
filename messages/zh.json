@@ -21,6 +21,7 @@
     "dashboard": "仪表盘",
     "settings": "设置",
     "appearance": "外观",
+    "account": "账户",
     "helpSupport": "帮助与支持",
     "myAccount": "我的账户",
     "logout": "退出登录",
@@ -29,6 +30,7 @@
   "settings": {
     "title": "设置",
     "nav": {
+      "account": "账户",
       "appearance": "外观",
       "selectPlaceholder": "分区"
     },
@@ -54,6 +56,28 @@
         "optionPreview": "{label} 选项预览",
         "optionSelect": "选择 {label}"
       }
+    },
+    "account": {
+      "title": "账户",
+      "description": "个人资料与登录安全。",
+      "loading": "加载中…",
+      "profileTitle": "资料",
+      "profileDescription": "在应用中的展示名称。",
+      "emailLabel": "邮箱",
+      "nameLabel": "姓名",
+      "saveProfile": "保存资料",
+      "saving": "保存中…",
+      "profileSaved": "资料已更新。",
+      "profileSaveError": "无法更新资料。",
+      "passwordTitle": "密码",
+      "passwordDescription": "修改邮箱登录密码。",
+      "currentPasswordLabel": "当前密码",
+      "newPasswordLabel": "新密码",
+      "confirmPasswordLabel": "确认新密码",
+      "updatePassword": "更新密码",
+      "updatingPassword": "更新中…",
+      "passwordSaved": "密码已更新。",
+      "passwordSaveError": "无法更新密码。"
     }
   },
   "commandMenu": {
@@ -97,7 +121,8 @@
       "submit": "登录",
       "submitting": "正在登录…",
       "noAccount": "还没有账户？",
-      "signUpLink": "注册"
+      "signUpLink": "注册",
+      "signInFailed": "无法登录，请检查邮箱和密码。"
     },
     "signUp": {
       "title": "创建账户",
@@ -105,7 +130,8 @@
       "submit": "创建账户",
       "submitting": "正在创建…",
       "haveAccount": "已有账户？",
-      "signInLink": "登录"
+      "signInLink": "登录",
+      "signUpFailed": "无法创建账户，请尝试更换邮箱。"
     },
     "signOut": {
       "title": "退出登录",

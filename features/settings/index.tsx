@@ -1,8 +1,8 @@
 "use client";
 
-import { useMemo } from "react";
-import { useTranslations } from "next-intl";
-import { Palette } from "lucide-react";
+import { useMemo } from "react"
+import { useTranslations } from "next-intl"
+import { Palette, UserCircle } from "lucide-react"
 import { Separator } from "@/components/ui/separator";
 import { Main } from "@/components/layout/main";
 import { SidebarNav } from "./components/sidebar-nav";
@@ -16,6 +16,11 @@ export function Settings({ children }: SettingsProps) {
 
   const sidebarNavItems = useMemo(
     () => [
+      {
+        title: t("nav.account"),
+        href: "/settings/account",
+        icon: <UserCircle size={18} />,
+      },
       {
         title: t("nav.appearance"),
         href: "/settings/appearance",

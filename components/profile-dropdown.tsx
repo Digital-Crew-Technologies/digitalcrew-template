@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { LayoutDashboard, LogOut, Settings } from "lucide-react";
+import { LayoutDashboard, Loader2, LogOut, Settings } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -17,7 +17,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar";
-import { Link } from "@/lib/i18n/navigation";
+import { Link, useRouter } from "@/lib/i18n/navigation";
+import { authClient } from "@/lib/auth-client";
 import { cn } from "@/lib/utils";
 
 type ProfileDropdownProps = {
@@ -25,27 +26,16 @@ type ProfileDropdownProps = {
   variant?: "default" | "sidebar";
 };
 
-type MockUser = {
-  fullName: string;
-  email: string;
-  avatarUrl?: string;
-};
+function getInitials(input: { name?: string | null; email?: string | null }) {
+  const name = input.name?.trim();
+  const email = input.email?.trim() ?? "";
 
-const mockUser: MockUser = {
-  fullName: "Alex Morgan",
-  email: "alex@digitalcrew.tech",
-  avatarUrl: "/avatars/01.png",
-};
-
-function getInitials(input: { fullName: string; email: string }) {
-  const { fullName, email } = input;
-
-  if (fullName) {
-    const parts = fullName.trim().split(/\s+/);
+  if (name) {
+    const parts = name.split(/\s+/);
     if (parts.length >= 2) {
       return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
     }
-    return fullName[0]?.toUpperCase() || "U";
+    return name[0]?.toUpperCase() || "U";
   }
 
   if (email) return email[0]?.toUpperCase() || "U";
@@ -53,18 +43,32 @@ function getInitials(input: { fullName: string; email: string }) {
 }
 
 export function ProfileDropdown({ variant = "default" }: ProfileDropdownProps) {
-  // Ensure the component re-renders when locale changes.
   useLocale();
-
+  const router = useRouter();
   const tNav = useTranslations("nav");
 
+  const { data: session, isPending } = authClient.useSession();
+
   const vm = useMemo(() => {
-    const displayName = mockUser.fullName || tNav("myAccount");
-    const email = mockUser.email || "";
-    const avatarUrl = mockUser.avatarUrl || "/avatars/01.png";
-    const initials = getInitials({ fullName: mockUser.fullName, email });
+    const user = session?.user;
+    const displayName =
+      user?.name?.trim() ||
+      user?.email?.trim() ||
+      tNav("myAccount");
+    const email = user?.email ?? "";
+    const avatarUrl = user?.image ?? "/avatars/01.png";
+    const initials = getInitials({
+      name: user?.name,
+      email: user?.email,
+    });
     return { displayName, email, avatarUrl, initials };
-  }, [tNav]);
+  }, [session?.user, tNav]);
+
+  const handleSignOut = async () => {
+    await authClient.signOut();
+    router.push("/");
+    router.refresh();
+  };
 
   const dropdownContent = (
     <>
@@ -87,24 +91,41 @@ export function ProfileDropdown({ variant = "default" }: ProfileDropdownProps) {
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
-          <Link href="/settings">
+          <Link href="/settings/account">
             <Settings className="h-4 w-4" />
             <span>{tNav("settings")}</span>
           </Link>
         </DropdownMenuItem>
       </DropdownMenuGroup>
       <DropdownMenuSeparator />
-      <DropdownMenuItem variant="destructive" asChild>
-        <Link href="/">
-          <LogOut className="h-4 w-4" />
-          <span>{tNav("logout")}</span>
-          <DropdownMenuShortcut className="text-current">
-            ⇧⌘Q
-          </DropdownMenuShortcut>
-        </Link>
+      <DropdownMenuItem variant="destructive" onClick={() => void handleSignOut()}>
+        <LogOut className="h-4 w-4" />
+        <span>{tNav("logout")}</span>
+        <DropdownMenuShortcut className="text-current">
+          ⇧⌘Q
+        </DropdownMenuShortcut>
       </DropdownMenuItem>
     </>
   );
+
+  if (isPending) {
+    const trigger = (
+      <Button variant="ghost" size="icon" className="relative h-8 w-8 rounded-full" disabled>
+        <Loader2 className="h-4 w-4 animate-spin" />
+      </Button>
+    );
+    if (variant === "sidebar") {
+      return (
+        <SidebarMenuItem>
+          <SidebarMenuButton size="lg" disabled className="gap-3 px-2 py-2">
+            <Loader2 className="size-4 animate-spin" />
+            <span className="truncate text-sm text-muted-foreground">{tNav("myAccount")}</span>
+          </SidebarMenuButton>
+        </SidebarMenuItem>
+      );
+    }
+    return trigger;
+  }
 
   if (variant === "sidebar") {
     return (
@@ -164,4 +185,3 @@ export function ProfileDropdown({ variant = "default" }: ProfileDropdownProps) {
     </DropdownMenu>
   );
 }
-

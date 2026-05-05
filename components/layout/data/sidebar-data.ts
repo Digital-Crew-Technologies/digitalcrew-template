@@ -2,6 +2,7 @@ import {
   LayoutDashboard,
   Settings,
   Palette,
+  UserCircle,
   LifeBuoy,
 } from "lucide-react"
 import { type SidebarData } from "../types"
@@ -25,6 +26,11 @@ export const sidebarData: SidebarData = {
           titleKey: "settings",
           icon: Settings,
           items: [
+            {
+              titleKey: "account",
+              url: "/settings/account",
+              icon: UserCircle,
+            },
             {
               titleKey: "appearance",
               url: "/settings/appearance",

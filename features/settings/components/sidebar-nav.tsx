@@ -27,7 +27,7 @@ export function SidebarNav({ className, items, ...props }: SidebarNavProps) {
   const t = useTranslations("settings");
   const pathname = usePathname();
   const router = useRouter();
-  const [val, setVal] = useState(pathname ?? "/settings");
+  const [val, setVal] = useState(pathname ?? "/settings/account");
 
   const handleSelect = (e: string) => {
     setVal(e);

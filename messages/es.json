@@ -21,6 +21,7 @@
     "dashboard": "Panel",
     "settings": "Ajustes",
     "appearance": "Apariencia",
+    "account": "Cuenta",
     "helpSupport": "Ayuda y soporte",
     "myAccount": "Mi cuenta",
     "logout": "Cerrar sesión",
@@ -29,6 +30,7 @@
   "settings": {
     "title": "Ajustes",
     "nav": {
+      "account": "Cuenta",
       "appearance": "Apariencia",
       "selectPlaceholder": "Sección"
     },
@@ -54,6 +56,28 @@
         "optionPreview": "Vista previa de la opción {label}",
         "optionSelect": "Seleccionar {label}"
       }
+    },
+    "account": {
+      "title": "Cuenta",
+      "description": "Perfil y seguridad de acceso.",
+      "loading": "Cargando…",
+      "profileTitle": "Perfil",
+      "profileDescription": "Cómo apareces en la aplicación.",
+      "emailLabel": "Correo electrónico",
+      "nameLabel": "Nombre",
+      "saveProfile": "Guardar perfil",
+      "saving": "Guardando…",
+      "profileSaved": "Perfil actualizado.",
+      "profileSaveError": "No se pudo actualizar el perfil.",
+      "passwordTitle": "Contraseña",
+      "passwordDescription": "Cambia la contraseña de tu inicio de sesión con correo.",
+      "currentPasswordLabel": "Contraseña actual",
+      "newPasswordLabel": "Nueva contraseña",
+      "confirmPasswordLabel": "Confirmar contraseña",
+      "updatePassword": "Actualizar contraseña",
+      "updatingPassword": "Actualizando…",
+      "passwordSaved": "Contraseña actualizada.",
+      "passwordSaveError": "No se pudo actualizar la contraseña."
     }
   },
   "commandMenu": {
@@ -97,7 +121,8 @@
       "submit": "Iniciar sesión",
       "submitting": "Iniciando sesión…",
       "noAccount": "¿No tienes cuenta?",
-      "signUpLink": "Regístrate"
+      "signUpLink": "Regístrate",
+      "signInFailed": "No se pudo iniciar sesión. Revisa el correo y la contraseña."
     },
     "signUp": {
       "title": "Crear una cuenta",
@@ -105,7 +130,8 @@
       "submit": "Crear cuenta",
       "submitting": "Creando cuenta…",
       "haveAccount": "¿Ya tienes cuenta?",
-      "signInLink": "Iniciar sesión"
+      "signInLink": "Iniciar sesión",
+      "signUpFailed": "No se pudo crear la cuenta. Prueba con otro correo."
     },
     "signOut": {
       "title": "Cerrar sesión",

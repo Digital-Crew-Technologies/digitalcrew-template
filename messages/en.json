@@ -21,6 +21,7 @@
     "dashboard": "Dashboard",
     "settings": "Settings",
     "appearance": "Appearance",
+    "account": "Account",
     "helpSupport": "Help & Support",
     "myAccount": "My account",
     "logout": "Log out",
@@ -29,6 +30,7 @@
   "settings": {
     "title": "Settings",
     "nav": {
+      "account": "Account",
       "appearance": "Appearance",
       "selectPlaceholder": "Section"
     },
@@ -54,6 +56,28 @@
         "optionPreview": "{label} option preview",
         "optionSelect": "Select {label}"
       }
+    },
+    "account": {
+      "title": "Account",
+      "description": "Your profile and sign-in security.",
+      "loading": "Loading…",
+      "profileTitle": "Profile",
+      "profileDescription": "How you appear in the app.",
+      "emailLabel": "Email",
+      "nameLabel": "Name",
+      "saveProfile": "Save profile",
+      "saving": "Saving…",
+      "profileSaved": "Profile updated.",
+      "profileSaveError": "Could not update profile.",
+      "passwordTitle": "Password",
+      "passwordDescription": "Change the password for your email sign-in.",
+      "currentPasswordLabel": "Current password",
+      "newPasswordLabel": "New password",
+      "confirmPasswordLabel": "Confirm new password",
+      "updatePassword": "Update password",
+      "updatingPassword": "Updating…",
+      "passwordSaved": "Password updated.",
+      "passwordSaveError": "Could not update password."
     }
   },
   "commandMenu": {
@@ -97,7 +121,8 @@
       "submit": "Sign In",
       "submitting": "Signing in...",
       "noAccount": "Don't have an account?",
-      "signUpLink": "Sign Up"
+      "signUpLink": "Sign Up",
+      "signInFailed": "Could not sign in. Check your email and password."
     },
     "signUp": {
       "title": "Create an Account",
@@ -105,7 +130,8 @@
       "submit": "Create Account",
       "submitting": "Creating account...",
       "haveAccount": "Already have an account?",
-      "signInLink": "Sign In"
+      "signInLink": "Sign In",
+      "signUpFailed": "Could not create your account. Try a different email."
     },
     "signOut": {
       "title": "Sign out",
