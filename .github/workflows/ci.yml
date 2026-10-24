@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - develop
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+jobs:
+  ci:
+    name: ci
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      NEXT_TELEMETRY_DISABLED: "1"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      # No .nvmrc or engines field in the repo: use the current Node.js LTS.
+      - name: Set up Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      # db/index.ts throws at import time without DATABASE_URL, and the build
+      # loads /api/auth to collect page data. Placeholder values only: the pool
+      # never connects during the build, and nothing here is a real credential.
+      - name: Build
+        run: npm run build
+        env:
+          DATABASE_URL: postgres://ci:ci@127.0.0.1:5432/ci
+          BETTER_AUTH_SECRET: ci-placeholder-secret-not-used-at-runtime
+          BETTER_AUTH_URL: http://localhost:3000
+
+      - name: Audit production dependencies
+        run: npm audit --omit=dev --audit-level=critical
