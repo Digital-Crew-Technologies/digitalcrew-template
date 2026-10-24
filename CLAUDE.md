@@ -34,7 +34,7 @@
 - Migrations : ne jamais modifier une migration déjà présente dans `drizzle/` ; ne pas éditer `drizzle/meta/` à la main (`db:generate` le met à jour). Changer `db/schema.ts`, puis `npm run db:generate` pour une nouvelle migration. Migrations additives (expand/contract) : ajouter avant de supprimer ou renommer.
 - i18n : 4 locales (`en`, `fr`, `es`, `zh`). Toute clé ajoutée ou modifiée l'est dans les 4 fichiers `messages/*.json`, qui ont aujourd'hui les mêmes clés.
 - Ajouter une locale demande de toucher `lib/i18n/routing.ts`, `messages/<locale>.json` ET la regex en dur du `matcher` de `middleware.ts`.
-- Nouvelle route protégée : l'ajouter à la regex `protectedPath` de `middleware.ts`, sinon elle reste accessible sans session.
+- Nouvelle route protégée : la placer sous `app/[locale]/(dashboard)/`, dont le layout vérifie la session côté serveur (`auth.api.getSession`) : c'est le vrai contrôle d'accès. L'ajouter aussi à la regex `protectedPath` de `middleware.ts`, qui ne fait qu'une redirection rapide vers le login en testant la présence du cookie de session (`getSessionCookie`, sans le valider) : ce n'est pas un contrôle d'accès.
 - Liens internes : utiliser les helpers de `lib/i18n/navigation.ts` (préfixe de locale obligatoire, `localePrefix: "always"`).
 - Secrets : jamais dans le code ; `.env.example` ne contient que des noms et des valeurs factices. Pas d'hôte de prod en dur (l'URL publique vient de `BETTER_AUTH_URL`).
 - Style : Prettier (`.prettierrc` : sans point-virgule, guillemets doubles, largeur 80). Lancer `npm run format` sur les fichiers modifiés.
@@ -44,4 +44,4 @@
 - Branche par défaut : `main` (une branche `develop` existe aussi).
 - Branche de travail : `claude/<clé-de-la-carte>-<mot-clé>`.
 - PR vers `main`, relecture humaine obligatoire. Jamais de push sur `main` ou `develop`, jamais de merge, jamais de force-push.
-- Avant de pousser : `npm run lint` et `npm run typecheck`. `npm run build` (si routes, middleware ou config touchés) importe `lib/auth.ts` → `db/index.ts` et demande probablement `DATABASE_URL` (non lancé lors de la rédaction).
+- Avant de pousser : `npm run lint` et `npm run typecheck`. `npm run build` (si routes, middleware ou config touchés) importe `lib/auth.ts` → `db/index.ts`, qui lève une erreur à l'import sans `DATABASE_URL` : fournir une valeur factice.
